@@ -129,7 +129,7 @@
 </head>	
 <body>
 	<script>
-				$(document).ready(function(){
+			$(document).ready(function(){
 			var percent = 0, bar = $('.transition-timer-carousel-progress-bar'), crsl = $('#myCarousel');
 			function progressBarCarousel() {
 			  bar.css({width:percent+'%'});
@@ -165,10 +165,7 @@
 					<?php
 						include 'articles.php';
 					?>
-
-
-
-					</div>
-					</div>
+				</div>
+		</div>
 </body>
 </html>

@@ -87,6 +87,9 @@ include 'protection.php';
                         <li>
                             <a href="create.php"><i class="fa fa-edit fa-fw"></i> Vytvořit příspěvek</a>
                         </li>
+                        <li>
+                            <a href="create_banner.php"><i class="fa fa-edit fa-fw"></i> Přidat banner</a>
+                        </li>
                        </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -97,7 +100,7 @@ include 'protection.php';
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Přehled příspěvků</h1>
+                    <h1 class="page-header">Přehled obsahu</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -107,7 +110,7 @@ include 'protection.php';
                 <div class="col-lg-6">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Publikované příspěvky
+                            Publikované příspěvky a bannery
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -170,6 +173,64 @@ echo $tag;
                                      
                                     </tbody>
                                 </table>
+
+                                                              <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Soubor</th>
+                                            <th>Datum publikace</th>
+                                            <th>Autor</th>
+                                            <th><i class="fa fa-times fa-fw"></i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+<?php
+
+
+
+
+mysql_query("SET NAMES 'utf8'");
+$sql = "SELECT * FROM data.banners WHERE id_banner <> 0 ORDER BY id_banner DESC";
+$result = mysql_query($sql);
+
+while ($row = mysql_fetch_assoc($result))
+{
+    $ID    = $row['id_banner'];
+    $filename = $row['filename'];
+    $author = $row['author'];
+    $date = $row['date'];
+
+    
+    // CREATE THE HTML STRING USING HEREDOC SYNTAX
+    $tag = <<<EOD
+   <tr>
+                                            <td>$filename</td>
+                                            <td>$date</td>
+                                            <td>$author</td>
+                                            <td><a href="remove_banner.php?id=$ID">smazat</a>
+                                            </td>
+                                        </tr>
+EOD;
+
+
+
+echo $tag;
+
+}
+
+?>
+
+
+                                     
+                                    </tbody>
+                                </table>
+
+                                
+
+                                                                
+
+                                
+
                             </div>
                             <!-- /.table-responsive -->
                         </div>

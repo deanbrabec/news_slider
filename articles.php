@@ -39,7 +39,7 @@ while ($row = mysql_fetch_assoc($result))
 	$date = $row['date'];
 
 	$datenew = new DateTime($date);
-	$ahoj = $datenew->format(' G:s, m. d. Y');
+	$ahoj = $datenew->format(' G:s, d. m. Y');
 	
 	$countx++;
     

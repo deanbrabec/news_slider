@@ -85,10 +85,10 @@ include 'protection.php';
                             <a href="index.php"><i class="fa fa-pencil fa-fw"></i> Přehled přípěvků</a>
                         </li>
                         <li>
-                            <a href="create.php" class="active"><i class="fa fa-edit fa-fw"></i> Vytvořit příspěvek</a>
+                            <a href="create.php"><i class="fa fa-edit fa-fw"></i> Vytvořit příspěvek</a>
                         </li>
                         <li>
-                            <a href="create_banner.php"><i class="fa fa-edit fa-fw"></i> Přidat banner</a>
+                            <a href="create_banner.php" class="active"><i class="fa fa-edit fa-fw"></i> Přidat banner</a>
                         </li>
                        </ul>
                 </div>
@@ -100,7 +100,7 @@ include 'protection.php';
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Vytvořit příspěvek</h1>
+                    <h1 class="page-header">Přidat banner</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -111,58 +111,88 @@ include 'protection.php';
             <!-- /.row -->
             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="post">
-                                        <div class="form-group">
-                                            <label>Nadpis</label>
-                                            <input maxlength="30" name="headline" required class="form-control">
-                                            <p class="help-block">* Maximální délka je 30 znaků</p>
-                                        </div>
-                                         <div class="form-group">
-                                           <label>Podnadpis</label>
-                                            <input maxlength="40" name="subheadline" required class="form-control">
-                                            <p class="help-block">* Maximální délka je 40 znaků</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Text příspěvku</label>
-                                            <textarea rows="4" required name="text" maxlength="280" class="form-control"></textarea>
-                                            <p class="help-block">* Maximální délka je 280 znaků</p>
-                                        </div>
-                                        <input type="submit" name="go" value="Publikovat" class="btn btn-default">
-
-                                        <button type="reset" class="btn btn-default">Reset</button>
+      
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        <input type="file" name="fileToUpload" id="fileToUpload">
+                                        <br>
+                                        <input type="submit" name="go" value="Upload Image" class="btn btn-default" name="submit">
                                     </form>
                                 </div>
                 
                  </div>
 <?php
-if(isset($_POST['go'])&& !empty($_POST['go'])){ 
 
+if(isset($_POST['go'])&& !empty($_POST['go']) && !empty($_FILES["fileToUpload"]["name"])){ 
 
-$headline = $_POST['headline'];  
-$subheadline = $_POST['subheadline'];
-$textx = $_POST['text'];
-$author = $_SESSION["username"]; 
+$author = $_SESSION["username"];
 $date = date("Y-m-d H:i:s");
 
+$target_dir = "uploads/";
 
+$target_file = basename($_FILES["fileToUpload"]["name"]);
 
 mysql_query("SET NAMES 'utf8'");
-$sql = "INSERT INTO `data`.`posts` (`id_post`, `headline`, `subheadline`, `date`, `author`, `text`) VALUES (NULL, '$headline', '$subheadline', '$date', '$author', '$textx');";
+$sql = "INSERT INTO `data`.`banners` (`id_banner`, `filename`, `author`, `date`) VALUES (NULL, '$target_file', '$author', '$date');";
 mysql_query($sql);
 
 
- echo ' <script type="text/javascript">
+
+$uploadOk = 1;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+// Check if file already exists
+if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["fileToUpload"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+
+    }
+
+     echo ' <script type="text/javascript">
          <!--
             function Redirect() {
-               window.location="index.php?text=Příspěvek byl vytvořen";
+               window.location="index.php?text=Banner byl vytvořen";
             }
             Redirect();
          //-->
       </script> ';
-
 }
 
+
+}
 ?>
+
+
 
 
                 <!-- /.col-lg-4 -->
