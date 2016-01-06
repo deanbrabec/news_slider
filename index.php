@@ -112,6 +112,7 @@
 			padding-bottom: 90px;
 			letter-spacing: 5px;
 			text-align: justify;
+			height: 500px;
 		}
 		.logo_svg{
 			height: 250px;
