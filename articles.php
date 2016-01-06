@@ -5,12 +5,9 @@ $pass="";
 $db="data";
 
 
-
-mysql_connect($server,$user,$pass,$db) or die("Sorry");
-
-
-
 $connection = mysql_connect($server,$user,$pass,$db) or die("Sorry");
+
+
 mysql_query("SET NAMES 'utf8'");
 $sql = "SELECT * FROM data.posts WHERE id_post <> 0 ORDER BY id_post DESC";
 $result = mysql_query($sql)  or trigger_error(mysql_error(). "in".$sql);
@@ -57,6 +54,52 @@ while ($row = mysql_fetch_assoc($result))
 							
 					  			<article>$message
 					  			</article>
+
+</div>
+
+EOD;
+
+    // RESET THE 'ACTIVE' ELEMENT
+    $active = NULL;
+    
+    // APPEND THE HTML STRING TO THE VARIABLE
+    $display_blockCarousel .= $tag;
+    
+// END OF THE WHILE LOOP
+
+}
+?> 
+
+<?php echo "$display_blockCarousel"; ?>
+
+
+<?php
+mysql_query("SET NAMES 'utf8'");
+$sql = "SELECT * FROM data.banners WHERE id_banner <> 0 ORDER BY id_banner DESC";
+$result = mysql_query($sql)  or trigger_error(mysql_error(). "in".$sql);
+
+
+// SETTING FOR INITIAL ITEM IS 'ITEM ACTIVE'
+$active = ' active';
+$display_blockCarousel = NULL;
+
+
+// ITERATE OVER EACH ROW OF THE RESULTS SET
+while ($row = mysql_fetch_assoc($result))
+{
+    $ID    = $row['id_banner'];
+    $filename = $row['filename'];
+	
+	$countx++;
+    
+    // CREATE THE HTML STRING USING HEREDOC SYNTAX
+    $tag = <<<EOD
+<div class="item">
+
+<img src="cms/pages/uploads/$filename">
+					  			
+
+
 </div>
 EOD;
 
@@ -72,6 +115,7 @@ EOD;
 ?> 
 
 <?php echo "$display_blockCarousel"; ?>
+
 
 <ol class="carousel-indicators">
 
@@ -92,6 +136,7 @@ for ($i=0; $i < $countx; $i++) {
 ?>
 
 </ol>
+
 						 
 					    	
 					    	

@@ -129,10 +129,12 @@ $date = date("Y-m-d H:i:s");
 
 $target_dir = "uploads/";
 
-$target_file = basename($_FILES["fileToUpload"]["name"]);
+$filename = basename($_FILES["fileToUpload"]["name"]);
+
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 
 mysql_query("SET NAMES 'utf8'");
-$sql = "INSERT INTO `data`.`banners` (`id_banner`, `filename`, `author`, `date`) VALUES (NULL, '$target_file', '$author', '$date');";
+$sql = "INSERT INTO `data`.`banners` (`id_banner`, `filename`, `author`, `date`) VALUES (NULL, '$filename', '$author', '$date');";
 mysql_query($sql);
 
 
@@ -156,7 +158,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 50000000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -178,14 +180,7 @@ if ($uploadOk == 0) {
 
     }
 
-     echo ' <script type="text/javascript">
-         <!--
-            function Redirect() {
-               window.location="index.php?text=Banner byl vytvořen";
-            }
-            Redirect();
-         //-->
-      </script> ';
+     
 }
 
 
