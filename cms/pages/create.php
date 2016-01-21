@@ -15,7 +15,7 @@ include 'protection.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Administrace LCD panelu - SSPŠ</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -123,6 +123,13 @@ include 'protection.php';
                                             <p class="help-block">* Maximální délka je 40 znaků</p>
                                         </div>
                                         <div class="form-group">
+                                            <label>Důležitost</label><br>
+                                        <select name="priority">
+                                            <option value="Standardní důležitost">Standardní důležitost</option>
+                                          <option value="Vysoká důležitost">Vysoká důležitost</option>
+                                        </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Text příspěvku</label>
                                             <textarea rows="4" required name="text" maxlength="280" class="form-control"></textarea>
                                             <p class="help-block">* Maximální délka je 280 znaků</p>
@@ -143,11 +150,12 @@ $subheadline = $_POST['subheadline'];
 $textx = $_POST['text'];
 $author = $_SESSION["username"]; 
 $date = date("Y-m-d H:i:s");
+$priority = $_POST["priority"]; 
 
 
 
 mysql_query("SET NAMES 'utf8'");
-$sql = "INSERT INTO `data`.`posts` (`id_post`, `headline`, `subheadline`, `date`, `author`, `text`) VALUES (NULL, '$headline', '$subheadline', '$date', '$author', '$textx');";
+$sql = "INSERT INTO `data`.`posts` (`id_post`, `headline`, `subheadline`, `date`, `author`, `text`, `priority`) VALUES (NULL, '$headline', '$subheadline', '$date', '$author', '$textx', '$priority');";
 mysql_query($sql);
 
 

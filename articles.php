@@ -1,7 +1,7 @@
 <?php
 $server="127.0.0.1";
 $user="root";
-$pass="";
+$pass="root";
 $db="data";
 
 
@@ -34,6 +34,7 @@ while ($row = mysql_fetch_assoc($result))
     $message = $row['text'];
     $author = $row['author'];
 	$date = $row['date'];
+	$priority = $row['priority'];
 
 	$datenew = new DateTime($date);
 	$ahoj = $datenew->format(' G:s, d. m. Y');
@@ -50,6 +51,7 @@ while ($row = mysql_fetch_assoc($result))
 									    
 									        <div class="time">$ahoj</div>
 									        <div class="author">$author</div>
+									        <div class="priority">$priority</div>
 									        
 							
 					  			<article>$message

@@ -6,6 +6,11 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script>
+		setTimeout(function(){
+   window.location.reload(1);
+}, 180000);
+		</script>
 	<style>
 	    *{
 	    	margin:0px;
@@ -42,7 +47,7 @@
 		.headline3{
 			float: right;
 			margin-top: 30px;
-			margin-right: 30px;
+			margin-right: 50px;
 			font-size: 65px;
 		}
 		.contentx{
@@ -74,6 +79,14 @@
 			color: white;
 			font-weight: 100;
 		}
+		.priority{
+			font-size: 45px;
+			padding-top: 35px;
+			padding-left: 60px;
+			float: left;
+			color: white;
+			font-weight: 100;
+		}
 		.time{
 			font-size: 40px;
 			float: left;
@@ -85,13 +98,19 @@
 		.time::before{
 			content:url(img/time.png);
 			float: left;padding-right: 30px;
-			margin-top: -15px
+			margin-top: -10px
 		}
 		.author::before{
 			content:url(img/user.png);
 			float: left;
 			padding-right: 30px;
-			margin-top: -15px
+			margin-top: -10px
+		}
+		.priority::before{
+			content:url(img/priority.png);
+			float: left;
+			padding-right: 30px;
+			margin-top: -10px
 		}
 		.carousel-indicators li{
 			border: 2px solid #949494;
@@ -112,7 +131,7 @@
 			padding-bottom: 90px;
 			letter-spacing: 5px;
 			text-align: justify;
-			height: 500px;
+			height:573px;
 		}
 		.logo_svg{
 			height: 250px;
@@ -120,7 +139,7 @@
 			margin-top: -50px;
 		}
 		.transition-timer-carousel-progress-bar {
-		    height: 6px;
+		    height: 7px;
 		    background-color: white;
 		    width: 0%;
 		    border: none;

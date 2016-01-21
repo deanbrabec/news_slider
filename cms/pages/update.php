@@ -16,7 +16,7 @@ include 'protection.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Administrace LCD panelu - SSPŠ</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -88,6 +88,9 @@ include 'protection.php';
                         <li>
                             <a href="create.php" class="active"><i class="fa fa-edit fa-fw"></i> Vytvořit příspěvek</a>
                         </li>
+                        <li>
+                            <a href="create_banner.php"><i class="fa fa-edit fa-fw"></i> Přidat banner</a>
+                        </li>
                        </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -132,6 +135,13 @@ while ($res = mysql_fetch_array($result)) {
                                             <p class="help-block">* Maximální délka je 15 znaků</p>
                                         </div>
                                         <div class="form-group">
+                                            <label>Důležitost</label><br>
+                                        <select name="priority">
+                                            <option value="Standardní důležitost">Standardní důležitost</option>
+                                          <option value="Vysoká důležitost">Vysoká důležitost</option>
+                                        </select>
+                                        </div>
+                                        <div class="form-group">
                                             <label>Text příspěvku</label>
                                             <textarea rows="4" required name="text" maxlength="280" class="form-control"><?php echo $text?></textarea>
                                             <p class="help-block">* Maximální délka je 280 znaků</p>
@@ -150,6 +160,7 @@ if(isset($_POST['go'])&& !empty($_POST['go'])){
 $headline = $_POST['headline'];  
 $subheadline = $_POST['subheadline'];
 $text = $_POST['text'];
+$priority = $_POST['priority'];
 $author = "zbysek.nechanicky";
 $date = date("Y-m-d H:i:s");
 $id = $_GET['id'];
@@ -157,7 +168,7 @@ $id = $_GET['id'];
 
 
 mysql_query("SET NAMES 'utf8'");
-$sql = "UPDATE `data`.`posts` SET `headline`='$headline', `subheadline`='$subheadline', `text`='$text' WHERE `id_post`='$id';";
+$sql = "UPDATE `data`.`posts` SET `headline`='$headline', `subheadline`='$subheadline', `text`='$text', `priority`='$priority' WHERE `id_post`='$id';";
 mysql_query($sql);
 
  echo ' <script type="text/javascript">

@@ -15,7 +15,7 @@ include 'protection.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Administrace SSPŠ</title>
+    <title>Administrace LCD panelu - SSPŠ</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -125,6 +125,7 @@ include 'protection.php';
                                             <th>Podnadpis</th>
                                             <th>Datum publikace</th>
                                             <th>Autor</th>
+                                            <th>Důležitost</th>
                                             <th><i class="fa fa-pencil fa-fw"></i></th>
                                             <th><i class="fa fa-times fa-fw"></i></th>
                                         </tr>
@@ -146,6 +147,7 @@ while ($row = mysql_fetch_assoc($result))
     $subheadline   = $row['subheadline'];
     $author = $row['author'];
     $date = $row['date'];
+    $priority = $row['priority'];
 
     
     // CREATE THE HTML STRING USING HEREDOC SYNTAX
@@ -155,6 +157,7 @@ while ($row = mysql_fetch_assoc($result))
                                             <td>$subheadline</td>
                                             <td>$date</td>
                                             <td>$author</td>
+                                            <td>$priority</td>
                                             <td><a href="update.php?id=$ID">upravit</a></td>
                                             <td><a href="remove.php?id=$ID">smazat</a>
                                             </td>

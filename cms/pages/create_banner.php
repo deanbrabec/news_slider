@@ -15,7 +15,7 @@ include 'protection.php';
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Administrace LCD panelu - SSPŠ</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -111,11 +111,10 @@ include 'protection.php';
             <!-- /.row -->
             <div class="row">
                                 <div class="col-lg-6">
-      
                                     <form action="" method="post" enctype="multipart/form-data">
                                         <input type="file" name="fileToUpload" id="fileToUpload">
                                         <br>
-                                        <input type="submit" name="go" value="Upload Image" class="btn btn-default" name="submit">
+                                        <input type="submit" name="go" value="Publikovat" class="btn btn-default" name="submit">
                                     </form>
                                 </div>
                 
@@ -184,7 +183,10 @@ if ($uploadOk == 0) {
 }
 
 
+
 }
+
+
 ?>
 
 
