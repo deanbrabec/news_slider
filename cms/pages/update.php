@@ -131,13 +131,13 @@ while ($res = mysql_fetch_array($result)) {
                                         </div>
                                          <div class="form-group">
                                            <label>Podnadpis</label>
-                                            <input maxlength="15" name="subheadline" required class="form-control" value="<?php echo $subheadline?>">
-                                            <p class="help-block">* Maximální délka je 15 znaků</p>
+                                            <input maxlength="40" name="subheadline" required class="form-control" value="<?php echo $subheadline?>">
+                                            <p class="help-block">* Maximální délka je 40 znaků</p>
                                         </div>
                                         <div class="form-group">
                                             <label>Důležitost</label><br>
                                         <select name="priority">
-                                            <option value="Standardní důležitost">Standardní důležitost</option>
+                                            <option value="">Standardní důležitost</option>
                                           <option value="Vysoká důležitost">Vysoká důležitost</option>
                                         </select>
                                         </div>

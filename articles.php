@@ -37,19 +37,39 @@ while ($row = mysql_fetch_assoc($result))
 	$priority = $row['priority'];
 
 	$datenew = new DateTime($date);
-	$ahoj = $datenew->format(' G:s, d. m. Y');
+	$time = $datenew->format(' G:s');
+	$date = $datenew->format(' d. m. Y');
 	
 	$countx++;
+
+	
+	
     
     // CREATE THE HTML STRING USING HEREDOC SYNTAX
     $tag = <<<EOD
+
+
+<script>
+    
+        if ($(".priority").is(":empty")) {
+        	$(".priority").addClass("no");
+            
+        }
+        else{
+        $(".priority").removeClass("no");	
+        }    
+
+</script>
+
 <div class="item$active">
 	<h1>$headline</h1>
 									        
 									    	<h2>$hastag</h2>
 									        <hr class="transition-timer-carousel-progress-bar" />
-									    
-									        <div class="time">$ahoj</div>
+									    	
+									    	<div class="date">$date</div>
+									        <div class="time">$time</div>
+									        
 									        <div class="author">$author</div>
 									        <div class="priority">$priority</div>
 									        
@@ -60,6 +80,8 @@ while ($row = mysql_fetch_assoc($result))
 </div>
 
 EOD;
+
+	
 
     // RESET THE 'ACTIVE' ELEMENT
     $active = NULL;

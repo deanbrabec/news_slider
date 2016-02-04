@@ -9,15 +9,47 @@
 		<script>
 		setTimeout(function(){
    window.location.reload(1);
-}, 180000);
+}, 360000);
 		</script>
 	<style>
+
+
+			@-webkit-keyframes pulse {
+			 0% {
+			 -webkit-transform: scale(0.9, 0.9);
+			}
+			 50% {
+			 -webkit-transform: scale(1, 1);
+			}
+			 100% {
+			 -webkit-transform: scale(0.9, 0.9);
+			};
+			}
+
+			@keyframes pulse {
+			 0% {
+			 transform: scale(0.9, 0.9);
+			}
+			 50% {
+			 transform: scale(1, 1);
+			}
+			 100% {
+			transform: scale(0.9, 0.9);
+			};
+			}
+
+
 	    *{
 	    	margin:0px;
 	    	padding: 0px;
 	    	font-family: teuton;
 	    	color:black;
 	    	}
+
+	    body{
+
+	    	overflow: hidden;
+	    }
 	    @font-face {
 	    	font-family: teuton;
 	    	src: url(TeutonNormal.otf);
@@ -34,14 +66,14 @@
 		.headline{
 			height: 75px;
 			float: left;
-			margin-top: 30px;
+			margin-top: 25px;
 			margin-left: 10px;
 			font-size: 36px;
 			padding-top: 20px;
-			line-height: 30px;
+			line-height: 35px;
 		}
 		.headline2{
-			font-size: 18px;
+			font-size: 25px;
 			color: #646464;
 		}
 		.headline3{
@@ -86,6 +118,16 @@
 			float: left;
 			color: white;
 			font-weight: 100;
+			-webkit-animation: pulse 1s linear infinite;
+				animation: pulse 1s linear infinite;
+		}
+		.date{
+			font-size: 45px;
+			padding-top: 35px;
+			padding-left: 60px;
+			float: left;
+			color: white;
+			font-weight: 100;
 		}
 		.time{
 			font-size: 40px;
@@ -106,6 +148,13 @@
 			padding-right: 30px;
 			margin-top: -10px
 		}
+
+		.date::before{
+			content:url(img/date.png);
+			float: left;
+			padding-right: 30px;
+			margin-top: -10px
+		}
 		.priority::before{
 			content:url(img/priority.png);
 			float: left;
@@ -117,9 +166,12 @@
 			width: 30px !important;
 			height: 30px !important;
 			border-radius: 20px;
+			margin-right: 20px;
 		}
 		.carousel-indicators li.active{
 			background-color: #949494;
+			margin-right: 20px;
+			margin-top: 5px;
 		}
 
 		article{
@@ -129,7 +181,7 @@
 			padding-right: 60px; 
 			line-height: 80px;
 			padding-bottom: 90px;
-			letter-spacing: 5px;
+			letter-spacing: 3px;
 			text-align: justify;
 			height:573px;
 		}
@@ -145,6 +197,11 @@
 		    border: none;
 		    z-index: 11;
 		}
+		.no
+		{
+			visibility: hidden;
+		}
+		
 	</style>
 </head>	
 <body>
@@ -162,13 +219,13 @@
 			crsl.carousel({
 			    interval: false,
 			    pause: true
-			}).on('slid.bs.carousel', function () {percent=0;});var barInterval = setInterval(progressBarCarousel, 50);
+			}).on('slid.bs.carousel', function () {percent=0;});var barInterval = setInterval(progressBarCarousel, 100);
 			crsl.hover(
 			    function(){
 			        clearInterval(barInterval);
 			    },
 			    function(){
-			        barInterval = setInterval(progressBarCarousel, 50);
+			        barInterval = setInterval(progressBarCarousel, 100);
 			    })
 		});
 	</script>

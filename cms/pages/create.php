@@ -124,10 +124,7 @@ include 'protection.php';
                                         </div>
                                         <div class="form-group">
                                             <label>Důležitost</label><br>
-                                        <select name="priority">
-                                            <option value="Standardní důležitost">Standardní důležitost</option>
-                                          <option value="Vysoká důležitost">Vysoká důležitost</option>
-                                        </select>
+                                            <input type="checkbox" name="priority" value="Vysoká důležitost"> Vysoká důležitost<br>
                                         </div>
                                         <div class="form-group">
                                             <label>Text příspěvku</label>
@@ -148,14 +145,21 @@ if(isset($_POST['go'])&& !empty($_POST['go'])){
 $headline = $_POST['headline'];  
 $subheadline = $_POST['subheadline'];
 $textx = $_POST['text'];
-$author = $_SESSION["username"]; 
+$loginuser = $_SESSION["username"];
+
+
+
+$sql = "SELECT `name` FROM `data`.`users` WHERE '$loginuser' = `username`";
+$result = mysql_query($sql);
+
+$authorname = mysql_fetch_assoc($result)["name"];
+
+
 $date = date("Y-m-d H:i:s");
 $priority = $_POST["priority"]; 
 
-
-
 mysql_query("SET NAMES 'utf8'");
-$sql = "INSERT INTO `data`.`posts` (`id_post`, `headline`, `subheadline`, `date`, `author`, `text`, `priority`) VALUES (NULL, '$headline', '$subheadline', '$date', '$author', '$textx', '$priority');";
+$sql = "INSERT INTO `data`.`posts` (`id_post`, `headline`, `subheadline`, `date`, `author`, `text`, `priority`) VALUES (NULL, '$headline', '$subheadline', '$date', '$authorname', '$textx', '$priority');";
 mysql_query($sql);
 
 
