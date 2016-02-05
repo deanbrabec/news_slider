@@ -12,33 +12,6 @@
 }, 360000);
 		</script>
 	<style>
-
-
-			@-webkit-keyframes pulse {
-			 0% {
-			 -webkit-transform: scale(0.9, 0.9);
-			}
-			 50% {
-			 -webkit-transform: scale(1, 1);
-			}
-			 100% {
-			 -webkit-transform: scale(0.9, 0.9);
-			};
-			}
-
-			@keyframes pulse {
-			 0% {
-			 transform: scale(0.9, 0.9);
-			}
-			 50% {
-			 transform: scale(1, 1);
-			}
-			 100% {
-			transform: scale(0.9, 0.9);
-			};
-			}
-
-
 	    *{
 	    	margin:0px;
 	    	padding: 0px;
@@ -118,8 +91,6 @@
 			float: left;
 			color: white;
 			font-weight: 100;
-			-webkit-animation: pulse 1s linear infinite;
-				animation: pulse 1s linear infinite;
 		}
 		.date{
 			font-size: 45px;
