@@ -2,27 +2,29 @@
 <html lang="cs">
 <head>
 
+
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script>
 		setTimeout(function(){
    window.location.reload(1);
 }, 360000);
 		</script>
 	<style>
+
+
+
 	    *{
 	    	margin:0px;
 	    	padding: 0px;
 	    	font-family: teuton;
 	    	color:black;
+
 	    	}
 
-	    body{
 
-	    	overflow: hidden;
-	    }
 	    @font-face {
 	    	font-family: teuton;
 	    	src: url(TeutonNormal.otf);
@@ -156,6 +158,7 @@
 			text-align: justify;
 			height:573px;
 		}
+
 		.logo_svg{
 			height: 250px;
 			width: 250px;
@@ -172,12 +175,15 @@
 		{
 			visibility: hidden;
 		}
+
 		
 	</style>
 </head>	
 <body>
 	<script>
 			$(document).ready(function(){
+
+
 			var percent = 0, bar = $('.transition-timer-carousel-progress-bar'), crsl = $('#myCarousel');
 			function progressBarCarousel() {
 			  bar.css({width:percent+'%'});
@@ -198,8 +204,13 @@
 			    function(){
 			        barInterval = setInterval(progressBarCarousel, 100);
 			    })
+
+			
+
+			
 		});
 	</script>
+
 
 	<header>
         <div class="logo"><img class="logo_svg" src="img/logo.svg"></div>
@@ -215,5 +226,9 @@
 					?>
 				</div>
 		</div>
+
+
+
+
 </body>
 </html>

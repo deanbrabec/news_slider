@@ -51,7 +51,7 @@ while ($row = mysql_fetch_assoc($result))
 
 <script>
     
-        if ($(".priority").is(":empty")) {
+        if ($(".priority" == "")) {
         	$(".priority").addClass("no");
             
         }
@@ -160,6 +160,8 @@ for ($i=0; $i < $countx; $i++) {
 ?>
 
 </ol>
+
+
 
 						 
 					    	
