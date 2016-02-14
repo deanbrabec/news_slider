@@ -49,17 +49,7 @@ while ($row = mysql_fetch_assoc($result))
     $tag = <<<EOD
 
 
-<script>
-    
-        if ($(".priority" == "")) {
-        	$(".priority").addClass("no");
-            
-        }
-        else{
-        $(".priority").removeClass("no");	
-        }    
 
-</script>
 
 <div class="item$active">
 	<h1>$headline</h1>
@@ -78,6 +68,18 @@ while ($row = mysql_fetch_assoc($result))
 					  			</article>
 
 </div>
+
+<script>
+    
+        if ($('.priority').is(':empty')){
+        	$(".priority").addClass("no");
+            
+        }
+        else{
+        $(".priority").removeClass("no");	
+        }    
+
+</script>
 
 EOD;
 
@@ -160,6 +162,8 @@ for ($i=0; $i < $countx; $i++) {
 ?>
 
 </ol>
+
+
 
 
 

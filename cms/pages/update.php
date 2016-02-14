@@ -126,25 +126,23 @@ while ($res = mysql_fetch_array($result)) {
                                     <form role="form" method="post">
                                         <div class="form-group">
                                             <label>Nadpis</label>
-                                            <input maxlength="30" name="headline" required class="form-control" value="<?php echo $headline?>">
-                                            <p class="help-block">* Maximální délka je 30 znaků</p>
+                                            <input maxlength="35" name="headline" required class="form-control" value="<?php echo $headline?>">
+                                            <p class="help-block">* Maximální délka je 35 znaků</p>
                                         </div>
                                          <div class="form-group">
                                            <label>Podnadpis</label>
-                                            <input maxlength="40" name="subheadline" required class="form-control" value="<?php echo $subheadline?>">
-                                            <p class="help-block">* Maximální délka je 40 znaků</p>
+                                            <input maxlength="45" name="subheadline" required class="form-control" value="<?php echo $subheadline?>">
+                                            <p class="help-block">* Maximální délka je 45 znaků</p>
                                         </div>
-                                        <div class="form-group">
+                                          <div class="form-group">
                                             <label>Důležitost</label><br>
-                                        <select name="priority">
-                                            <option value="">Standardní důležitost</option>
-                                          <option value="Vysoká důležitost">Vysoká důležitost</option>
-                                        </select>
+                                            <input type="radio" name="priority" value="Vysoká důležitost"> Vysoká důležitost<br>
+                                            <input type="radio" name="priority" value=""> Standardní důležitost
                                         </div>
                                         <div class="form-group">
                                             <label>Text příspěvku</label>
-                                            <textarea rows="4" required name="text" maxlength="280" class="form-control"><?php echo $text?></textarea>
-                                            <p class="help-block">* Maximální délka je 280 znaků</p>
+                                            <textarea rows="4" required name="text" maxlength="330" class="form-control"><?php echo $text?></textarea>
+                                            <p class="help-block">* Maximální délka je 330 znaků</p>
                                         </div>
                                         <input type="submit" name="go" value="Upravit" class="btn btn-default">
 
@@ -174,7 +172,7 @@ mysql_query($sql);
  echo ' <script type="text/javascript">
          <!--
             function Redirect() {
-               window.location="index.php?text=Příspěvek byl upraven";
+               window.location="index.php?text=Příspěvek byl vytvořen";
             }
             Redirect();
          //-->
