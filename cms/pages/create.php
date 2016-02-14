@@ -124,8 +124,8 @@ include 'protection.php';
                                         </div>
                                         <div class="form-group">
                                             <label>Důležitost</label><br>
-                                            <input type="radio" name="priority" value="Vysoká důležitost"> Vysoká důležitost<br>
-                                            <input type="radio" name="priority" value=""> Standardní důležitost
+                                            <input type="radio" name="priority" value="Vysoká důležitost" required> Vysoká důležitost<br>
+                                            <input type="radio" name="priority" value="" required> Standardní důležitost
                                         </div>
                                         <div class="form-group">
                                             <label>Text příspěvku</label>
