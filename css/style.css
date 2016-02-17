@@ -2,7 +2,7 @@
             margin: 0px;
             padding: 0px;
             font-family: teuton;
-            color: black;
+            
         }
         
         @font-face {
@@ -30,6 +30,7 @@
             font-size: 36px;
             padding-top: 20px;
             line-height: 35px;
+           
         }
         
         .headline2 {
@@ -55,16 +56,17 @@
             padding-top: 20px;
             padding-left: 60px;
             display: block;
-            color: white;
+            color: white!important;
             font-weight: 100;
         }
         
         h2 {
             font-size: 90px;
-            padding-left: 60px;
+            padding-left: 40px;
             color: white;
             font-weight: 100;
             padding-bottom: 20px;
+            color: white!important;
         }
         
         .author {
@@ -81,9 +83,19 @@
             padding-top: 35px;
             padding-left: 60px;
             float: left;
-            color: white;
+            color: white!important;
+            text-decoration: none;
             font-weight: 100;
         }
+
+        .priority a
+        {
+            color: white!important;
+            text-decoration: none;
+            pointer-events: none;
+            cursor: default;
+        }
+
         
         .date {
             font-size: 45px;
@@ -104,7 +116,7 @@
         }
         
         .time::before {
-            content: url(../img/time.png);
+            content: url(../img/t.png);
             float: left;
             padding-right: 30px;
             margin-top: -10px
@@ -125,7 +137,7 @@
         }
         
         .priority::before {
-            content: url(../img/priority.png);
+            content: url(../img/pri.png);
             float: left;
             padding-right: 30px;
             margin-top: -10px
@@ -172,5 +184,5 @@
         }
         
         .no {
-            visibility: hidden;
+            display: none;
         }

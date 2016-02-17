@@ -1,0 +1,32 @@
+<div class="item">
+	<h1>{TITLE_PLAIN}</h1>
+
+	<h2>&nbsp;{xDATE}</h2>
+	<hr class="transition-timer-carousel-progress-bar" />
+
+	<div class="date">{xSUBHEADLINE}</div>
+	<div class="time">{xTIME}</div>
+
+	<div class="author">{xSTRING}</div>
+	<div class="priority" id="checker">{CATEGORY}</div>
+
+
+	<article>{TEXT}
+	</article>
+</div>
+
+<script>  
+$('.item:first').addClass('active'); 
+
+if( $('.date:last').is(':empty') ) {
+$('.date:last').addClass('no')
+}
+
+if( $('.time:last').is(':empty') ) {
+$('.time:last').addClass('no')
+}
+
+if( $('.author:last').is(':empty') ) {
+$('.author:last').addClass('no')
+}
+</script>

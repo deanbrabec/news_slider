@@ -57,10 +57,15 @@
     <div class="contentx">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner content" role="listbox">
-                <?php include 'articles.php'; ?>	
+                <?php include 'articles.php'; ?>
+         
             </div>
+
         </div>
     </div>
+
+
+
 </body>
 	
 
