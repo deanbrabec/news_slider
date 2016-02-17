@@ -75,9 +75,13 @@ if (isset($_POST['username']) and isset($_POST['password'])){
 //3.1.1 Assigning posted values to variables.
 $username = $_POST['username'];
 $password = $_POST['password'];
+	
+
 //3.1.2 Checking the values are existing in the database or not
-$query = "SELECT * FROM `data`.`users` WHERE username='$username' and password='$password'";
+$query = "SELECT * FROM `data`.`users` WHERE username='$username' and password='md5($password)'";
  
+	
+	
 $result = mysql_query($query) or die(mysql_error());
 $count = mysql_num_rows($result);
 //3.1.2 If the posted values are equal to the database values, then session will be created for the user.

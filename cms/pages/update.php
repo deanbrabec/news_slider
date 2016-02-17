@@ -159,7 +159,6 @@ $headline = $_POST['headline'];
 $subheadline = $_POST['subheadline'];
 $text = $_POST['text'];
 $priority = $_POST['priority'];
-$author = "zbysek.nechanicky";
 $date = date("Y-m-d H:i:s");
 $id = $_GET['id'];
 
