@@ -18,12 +18,19 @@ include 'mnews/mn-show.php';
 
 <?php
 
-$myFile = "mnews/data/databases/id_posts.php";
-$lines = file($myFile);//file in to an array
-$test = $lines[0]; //line 2
+
+$filename="mnews/data/databases/posts.php";
+
+$lines = count(file($filename)); 
+
+$filename2="mnews/data/databases/files.php";
+
+$lines2 = count(file($filename2));
+
+$count = $lines + $lines2 -2;
 
 
-for ($i=0; $i < $test; $i++) { 
+for ($i=0; $i < $count; $i++) { 
 	if($i==0){
 		echo '<li data-target="#myCarousel" class="active"></li>';
 	}
